@@ -1,13 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ContactModal from '../components/ContactModal';
 import Layout from '../components/layout/Layout';
 
 function About() {
+  const [contactOpen, setContactOpen] = useState(false);
+
+  useEffect(() => {
+    if (!contactOpen) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [contactOpen]);
+
   return (
     <Layout>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-x-8 gap-y-8 items-start min-h-[60vh]">
         <div className="md:col-span-5">
           <img
-            src={`${process.env.PUBLIC_URL || ''}/images/about-portrait.jpeg`}
+            src={`${process.env.PUBLIC_URL || ''}/images/about-portrait.jpg`}
             alt="Eris Gao"
             className="w-full max-w-full object-contain"
           />
@@ -38,12 +50,17 @@ function About() {
             <a href="https://github.com/SamIAm2000">Github</a>
           </p>
           <p>
-            <a href="https://erisgao.com/contact-form" target="_blank" rel="noopener noreferrer">
+            <button
+              type="button"
+              onClick={() => setContactOpen(true)}
+              className="eris-bodycopy-link"
+            >
               Contact
-            </a>
+            </button>
           </p>
         </div>
       </div>
+      <ContactModal isOpen={contactOpen} onClose={() => setContactOpen(false)} />
     </Layout>
   );
 }

@@ -76,6 +76,18 @@
   text-decoration: underline;
 }
 
+button.eris-bodycopy-link {
+  font: inherit;
+  font-size: inherit;
+  font-variation-settings: 'slnt' 0, 'MONO' 0;
+  color: rgba(201, 0, 3, 0.85);
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
 .eris-h1 {
   font-family: 'Freight Big', Georgia, serif;
   font-style: normal;
@@ -126,6 +138,52 @@
 
 .eris-icon-link:hover {
   opacity: 0.85;
+}
+
+/* Contact modal (About page) — matches Cargo-style minimal form */
+.eris-contact-modal-title {
+  font-family: 'Diatype Variable', system-ui, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+  color: rgba(0, 0, 0, 0.9);
+  font-variation-settings: 'slnt' 0, 'MONO' 0;
+}
+
+.eris-contact-modal-label,
+.eris-contact-modal-input {
+  font-family: 'Diatype Variable', system-ui, sans-serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  line-height: 1.35;
+  font-variation-settings: 'slnt' 0, 'MONO' 0;
+}
+
+.eris-contact-modal-btn {
+  font-family: 'Diatype Variable', system-ui, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  border: none;
+  cursor: pointer;
+  font-variation-settings: 'slnt' 0, 'MONO' 0;
+}
+
+.eris-contact-modal-btn-muted {
+  background-color: #e8e8e8;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+.eris-contact-modal-btn-muted:hover {
+  background-color: #ddd;
+}
+
+.eris-contact-modal-btn-primary {
+  background-color: #111;
+  color: #fff;
+}
+
+.eris-contact-modal-btn-primary:hover:not(:disabled) {
+  background-color: #333;
 }
 
 /* Cargo project page HTML (synced body) */
