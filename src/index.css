@@ -133,16 +133,22 @@
   max-width: 100%;
 }
 
+/* Equal halves so the column gutter sits on the horizontal center of the project block */
 .eris-project-body .eris-column-set {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 2rem;
-  align-items: flex-start;
+  align-items: start;
   margin-bottom: 2rem;
 }
 
+@media (min-width: 600px) {
+  .eris-project-body .eris-column-set {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
 .eris-project-body .eris-column-unit {
-  flex: 1 1 280px;
   min-width: 0;
 }
 
@@ -156,6 +162,10 @@
 @media (min-width: 600px) {
   .eris-project-body .eris-gallery-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .eris-project-body .eris-gallery-grid.eris-gallery-grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
@@ -187,14 +197,31 @@
   display: block;
 }
 
-.eris-project-body h2 {
+/* Project page title + subtitle (all projects use the same components) */
+.eris-project-body .eris-project-title {
   font-family: 'Diatype Variable', system-ui, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 2rem;
   line-height: 1.2;
   letter-spacing: 0;
-  margin: 0 0 0.5em;
+  margin: 0 0 0.15em;
+  color: rgba(0, 0, 0, 0.85);
+  font-variation-settings: 'slnt' 0, 'MONO' 0;
+}
+
+.eris-project-body .eris-project-title b {
+  font-weight: 600;
+}
+
+.eris-project-body .eris-project-meta {
+  display: block;
+  font-family: 'Diatype Variable', system-ui, sans-serif;
+  font-style: italic;
+  font-weight: 300;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  margin: 0;
   color: rgba(0, 0, 0, 0.85);
   font-variation-settings: 'slnt' 0, 'MONO' 0;
 }

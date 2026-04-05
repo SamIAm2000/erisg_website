@@ -1,21 +1,15 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Layout from '../../components/layout/Layout';
+import { ProjectPageProvider } from '../../components/project';
 import projects from './projectData';
-import projectPages from '../../data/projectPages.json';
-
-const publicBase = process.env.PUBLIC_URL || '';
+import projectContentBySlug from './projectContentRegistry';
 
 function ProjectPage() {
   const { projectId } = useParams();
   const navigate = useNavigate();
   const project = projects.find((p) => p.id === projectId);
-  const pageData = project ? projectPages[projectId] : undefined;
-
-  const bodyHtml = useMemo(() => {
-    const raw = pageData?.bodyHtml || '';
-    return raw.replace(/\{\{PUBLIC_URL\}\}/g, publicBase);
-  }, [pageData]);
+  const Content = projectContentBySlug[projectId];
 
   useEffect(() => {
     if (!project) {
@@ -25,12 +19,11 @@ function ProjectPage() {
 
   useEffect(() => {
     if (!project) return;
-    const t = pageData?.title || project.title;
-    document.title = t;
+    document.title = project.title;
     return () => {
       document.title = 'Eris Gao Portfolio';
     };
-  }, [project, pageData, projectId]);
+  }, [project, projectId]);
 
   if (!project) {
     return null;
@@ -38,12 +31,11 @@ function ProjectPage() {
 
   return (
     <Layout>
-      <div className="max-w-[72rem]">
-        {bodyHtml ? (
-          <div
-            className="eris-project-body eris-bodycopy"
-            dangerouslySetInnerHTML={{ __html: bodyHtml }}
-          />
+      <ProjectPageProvider projectId={projectId}>
+        {Content ? (
+          <div className="eris-project-body eris-bodycopy w-full">
+            <Content />
+          </div>
         ) : (
           <>
             <h1 className="eris-h1 mb-8">{project.title}</h1>
@@ -56,12 +48,7 @@ function ProjectPage() {
             </div>
           </>
         )}
-        <p className="eris-bodycopy mt-10">
-          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-            Open this project on erisgao.com
-          </a>
-        </p>
-      </div>
+      </ProjectPageProvider>
     </Layout>
   );
 }

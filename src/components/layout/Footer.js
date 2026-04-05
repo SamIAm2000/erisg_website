@@ -2,8 +2,8 @@ import React from 'react';
 
 function Footer() {
   return (
-    <footer className="relative z-10 mt-auto bg-white md:pointer-events-none md:fixed md:bottom-0 md:left-0 md:right-0 md:z-[999]">
-      <div className="w-full md:flex md:justify-center md:pointer-events-auto">
+    <footer className="relative z-10 mt-auto bg-white">
+      <div className="w-full md:flex md:justify-center">
         <div className="eris-page-inner w-full max-w-[100%] px-6 pb-6 pt-8 md:max-w-[85%] md:px-[5rem] md:pb-[1.5rem] md:pt-[3rem]">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <h1 className="eris-h1 shrink-0">©2022—’26</h1>
