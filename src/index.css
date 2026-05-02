@@ -284,6 +284,53 @@ button.eris-bodycopy-link {
   font-variation-settings: 'slnt' 0, 'MONO' 0;
 }
 
+/* Playground galleries: masonry (2-col mobile, 3-col desktop) */
+.eris-playground-masonry-grid {
+  display: flex;
+  margin: 2rem 0;
+  margin-left: -2rem;
+}
+
+.eris-playground-masonry-grid-column {
+  padding-left: 2rem;
+  background-clip: padding-box;
+}
+
+.eris-playground-masonry-item {
+  min-width: 0;
+  margin-bottom: 2rem;
+}
+
+.eris-playground-masonry-item .eris-media img,
+.eris-playground-masonry-item .eris-media video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.eris-playground-masonry-item .eris-caption {
+  max-width: 100%;
+  text-align: left;
+  hyphens: auto;
+}
+
+.eris-playground .eris-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.eris-playground .eris-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
 @media (max-width: 599px) {
   /* Slightly below Cargo’s 1.39× mobile scale so type reads one step smaller on phones */
   html {
