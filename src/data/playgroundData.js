@@ -1,259 +1,128 @@
 /**
- * Mirrors https://erisgao.com/playground-1 — freeform coords from Cargo gallery-freeform.
- * Media: public/media/playground/{hash}_{filename}
- * Layout: left/top/width use cqw (≈ % of canvas width); canvas height = padding-bottom in cqw.
+ * Playground gallery items for the Masonry layout on /playground.
+ * Media files live under public/media/playground/{file}
  */
 export const PLAYGROUND_INTRO =
   'This is a collection of things I have worked on in the past and present, a motley of ideas, experiments, incomplete and ongoing projects, and interesting clutter I want to show.';
 
 /**
  * @typedef {{
- *   hash: string,
  *   file: string,
  *   kind: 'image'|'video'|'youtube',
  *   youtubeId?: string,
  *   caption?: string,
- *   x: number,
- *   y: number,
- *   z: number,
- *   scale: number,
  * }} PlaygroundItem
  */
 
 /** @type {PlaygroundItem[]} */
 export const PLAYGROUND_GALLERY_1 = [
   {
-    hash: 'H2281655452754669544491125178894',
-    file: 'IMG_8702-2.jpg',
-    kind: 'image',
-    x: 74.7710396039604,
-    y: 0,
-    z: 21,
-    scale: 28.2,
-    caption:
-      "Cheese fidget clicker\n\nHere's my Makerworld profile with all my models https://makerworld.com/en/@eris2000/upload",
-  },
-  {
-    hash: 'J2281655452773116288564834730510',
     file: 'IMG_7284-2.jpg',
     kind: 'image',
-    x: 0,
-    y: 9.607054455445537,
-    z: 19,
-    scale: 26.12,
     caption: "I've been getting into 3D printing lately",
   },
   {
-    hash: 'A2281655452736222800417415627278',
+    file: 'IMG_8702-2.jpg',
+    kind: 'image',
+    caption: "Cheese fidget clicker. Here's my Makerworld profile with all my models https://makerworld.com/en/@eris2000/upload",
+  },
+  {
     file: 'IMG_7883-2.jpg',
     kind: 'image',
-    x: 30.594059405940605,
-    y: 15.247524752475247,
-    z: 22,
-    scale: 41.8,
     caption: 'These mini wavy lamps were inspired by Wooj Design',
   },
+
   {
-    hash: 'R2281874431157429731005959111182',
-    file: 'IMG_8715.MOV',
-    kind: 'video',
-    x: 68.0275371287129,
-    y: 50.28465346534653,
-    z: 23,
-    scale: 30.6,
-    caption: 'Key-tap based bongo cat also runs on QMK',
-  },
-  {
-    hash: 'U2281863294968712896991905841678',
-    file: 'bongo_v2.mp4',
-    kind: 'video',
-    x: 5.643564356435644,
-    y: 55.148514851485146,
-    z: 20,
-    scale: 55.0,
-    caption:
-      'I programmed an OLED screen on my keyboard to display Bongo Cat \n\nOpen source ZMK code is here: https://github.com/SamIAm2000/zmk',
-  },
-  {
-    hash: 'Z1971703939994264222016355566094',
     file: 'PNG-image-3.JPEG',
     kind: 'image',
-    x: 8.660272277227724,
-    y: 97.79207920792079,
-    z: 1,
-    scale: 29.6,
     caption: 'I sometimes try my hand at 3D modeling',
   },
   {
-    hash: 'M1971704239975216348681083945486',
     file: 'cat.JPEG',
     kind: 'image',
-    x: 33.88694306930694,
-    y: 107.49504950495049,
-    z: 3,
-    scale: 26.6,
   },
   {
-    hash: 'K1971704240159683789418179461646',
     file: 'cat-5-2.JPEG',
     kind: 'image',
-    x: 58.8854422195951,
-    y: 116.39497284616519,
-    z: 2,
-    scale: 35.4,
-    caption:
-      'I wrote a rendering engine in C++ from scratch and rendered this beauty with no reflections or shadows.',
+    caption: 'I wrote a rendering engine in C++ from scratch and rendered this beauty with no reflections or shadows.',
   },
   {
-    hash: 'Q1971722270689870963861182349838',
+    file: 'bongo_v2.mp4',
+    kind: 'video',
+    caption: 'I programmed an OLED screen on my keyboard to display Bongo Cat. Open source ZMK code is here: https://github.com/SamIAm2000/zmk',
+  },
+  {
     file: 'IMG_9777-min.png',
     kind: 'image',
-    x: 7.573703265848984,
-    y: 142.46192870061003,
-    z: 4,
-    scale: 31.3,
-    caption:
-      'I live code in Sonic Pi and Hydra, but I want to learn more live coding languages',
+    caption: 'I live code in Sonic Pi and Hydra, but I want to learn more live coding languages',
   },
   {
-    hash: 'X1984504825430772195882832888334',
     file: 'Jello sounds',
     kind: 'youtube',
-    x: 45.49195544554456,
-    y: 151.77258663366337,
-    z: 6,
-    scale: 51.0,
     youtubeId: '6gLrZYKcRQ8',
-    caption:
-      'I stuck a wire on a spoon and now you can hear your jello scream as you eat it',
+    caption: 'I stuck a wire on a spoon and now you can hear your jello scream as you eat it',
   },
   {
-    hash: 'W1971731746210452562172851388942',
     file: 'goldfish.gif',
     kind: 'image',
-    x: 61.135519801980195,
-    y: 188.5052599009901,
-    z: 5,
-    scale: 20,
     caption: "pepper's ghost goldfish",
   },
   {
-    hash: 'W1971722270302489338313281765902',
     file: 'IMG_9772-min.png',
     kind: 'image',
-    x: 11.980198019801982,
-    y: 192.18719059405944,
-    z: 7,
-    scale: 37.5,
     caption: 'I prefer to live code audio reactive visuals',
   },
   {
-    hash: 'F2141952902285905318195824034318',
     file: 'IMG_6379-min.JPG',
     kind: 'image',
-    x: 54.89789603960396,
-    y: 219.09931930693068,
-    z: 10,
-    scale: 23.81,
   },
   {
-    hash: 'V1984338866198660063518514872846',
     file: 'IMG_5247-min.JPG',
     kind: 'image',
-    x: 80.990099009901,
-    y: 224.74288366336637,
-    z: 11,
-    scale: 20,
   },
   {
-    hash: 'A1984338866143319831297386217998',
+    file: 'IMG_5361-min.png',
+    kind: 'image',
+    caption: 'i like to build mechanical keyboards. i soldered, 3d modeled, 3d printed and programmed most of these.',
+  },
+  {
     file: 'IMG_4770-min.JPG',
     kind: 'image',
-    x: 0,
-    y: 225.94647277227727,
-    z: 12,
-    scale: 21.2,
     caption: '3d modeled and 3d printed by me',
   },
   {
-    hash: 'B1984338866217106807592224424462',
     file: 'IMG_5362-min.JPG',
     kind: 'image',
-    x: 23.551980198019802,
-    y: 231.42605198019803,
-    z: 16,
-    scale: 29.66,
     caption: 'wiring for 40% keyboard Pancake',
   },
   {
-    hash: 'N2141952902230565085974695379470',
     file: 'IMG_6600-min.JPG',
     kind: 'image',
-    x: 67.76918316831684,
-    y: 253.65377475247527,
-    z: 13,
-    scale: 37.3,
-    caption:
-      'This is a wireless bluetooth handwired mini keyboard called the 2% Milk.',
+    caption: 'This is a wireless bluetooth handwired mini keyboard called the 2% Milk.',
   },
   {
-    hash: 'W2141952902267458574122114482702',
     file: 'IMG_6519-min.jpg',
     kind: 'image',
-    x: -2.428836633663366,
-    y: 260.08941831683165,
-    z: 9,
-    scale: 37.5,
     caption: 'Lily 58',
   },
+
   {
-    hash: 'L1984347038069391228702461657614',
-    file: 'IMG_5361-min.png',
-    kind: 'image',
-    x: 36.33199257425747,
-    y: 270.231745049505,
-    z: 14,
-    scale: 29.2,
-    caption:
-      'i like to build mechanical keyboards\n\ni soldered, 3d modeled, 3d printed and programmed most of these.',
-  },
-  {
-    hash: 'Y2141952902249011830048404931086',
     file: 'IMG_5790-2-min.jpg',
     kind: 'image',
-    x: 69.75556930693071,
-    y: 286.91955445544556,
-    z: 8,
-    scale: 33.81,
   },
   {
-    hash: 'M2141972301195567880413365797390',
     file: 'IMG_6590-min.JPG',
     kind: 'image',
-    x: 4.105816831683171,
-    y: 291.7725866336633,
-    z: 15,
-    scale: 26.3,
     caption: 'handwired planck',
   },
   {
-    hash: 'C2281872640181494358619302265358',
     file: 'IMG_7860-2.jpg',
     kind: 'image',
-    x: 46.318069306930695,
-    y: 319.8805693069308,
-    z: 18,
-    scale: 51.9,
     caption: 'Lagom 65',
   },
   {
-    hash: 'Q2281872640421302031577526436366',
     file: 'IMG_8461-2.jpg',
     kind: 'image',
-    x: 10.410891089108908,
-    y: 330.8100247524753,
-    z: 17,
-    scale: 29.2,
     caption: 'keyboards in progress',
   },
 ];
@@ -261,159 +130,65 @@ export const PLAYGROUND_GALLERY_1 = [
 /** @type {PlaygroundItem[]} */
 export const PLAYGROUND_GALLERY_2 = [
   {
-    hash: 'S1984338866161766575371095769614',
-    file: 'IMG_4798-min.JPG',
-    kind: 'image',
-    x: 49.25433168316832,
-    y: 0,
-    z: 7,
-    scale: 37.7,
-    caption: 'rug tufting!',
-  },
-  {
-    hash: 'I1984350750236828389791500206606',
-    file: 'IMG_4805-min.jpg',
-    kind: 'image',
-    x: 4.600866336633663,
-    y: 15.742574257425751,
-    z: 10,
-    scale: 41.9,
-    caption: 'sheep clouds in a blue sky',
-  },
-  {
-    hash: 'J1971784957522386888082056937998',
-    file: 'IMG_9115-min.JPG',
-    kind: 'image',
-    x: 30.04641089108911,
-    y: 56.34746287128713,
-    z: 1,
-    scale: 20,
-  },
-  {
-    hash: 'T1971784957559280376229476041230',
-    file: 'IMG_4716-min.jpeg',
-    kind: 'image',
-    x: 91.82858910891089,
-    y: 57.33756188118813,
-    z: 5,
-    scale: 20,
-  },
-  {
-    hash: 'S1971784957596173864376895144462',
-    file: 'IMG_4525-min.JPG',
-    kind: 'image',
-    x: -10.745668316831683,
-    y: 57.73360148514851,
-    z: 2,
-    scale: 20,
-  },
-  {
-    hash: 'Y1971784957577727120303185592846',
-    file: 'IMG_4535-min.jpeg',
-    kind: 'image',
-    x: 50.739480198019805,
-    y: 60.80290841584157,
-    z: 3,
-    scale: 20,
-    caption: 'signage',
-  },
-  {
-    hash: 'R1971784957540833632155766489614',
-    file: 'IMG_4718-min.jpeg',
-    kind: 'image',
-    x: 71.33353960396039,
-    y: 61.99102722772277,
-    z: 6,
-    scale: 20,
-  },
-  {
-    hash: 'X1971784957227238982902704112142',
     file: 'IMG_2636-min.JPG',
     kind: 'image',
-    x: 9.353341584158418,
-    y: 63.77320544554456,
-    z: 4,
-    scale: 20,
     caption: "i'm a big fan of raise plow signs",
   },
   {
-    hash: 'I1971765242103489509156028547598',
+    file: 'IMG_9115-min.JPG',
+    kind: 'image',
+  },
+  {
+    file: 'IMG_4716-min.jpeg',
+    kind: 'image',
+  },
+  {
+    file: 'IMG_4525-min.JPG',
+    kind: 'image',
+  },
+  {
+    file: 'IMG_4535-min.jpeg',
+    kind: 'image',
+    caption: 'signage',
+  },
+  {
+    file: 'IMG_4718-min.jpeg',
+    kind: 'image',
+  },
+
+  {
     file: '100_0523.JPG',
     kind: 'image',
-    x: 48.462252475247524,
-    y: 93.17914603960399,
-    z: 8,
-    scale: 47.3,
     caption: 'and i love postmodernism',
   },
   {
-    hash: 'N1971765242786019039883281957390',
     file: '100_0526.JPG',
     kind: 'image',
-    x: 9.254331683168322,
-    y: 99.81280940594064,
-    z: 9,
-    scale: 37.6,
   },
   {
-    hash: 'L2141972301214014624487075349006',
     file: 'IMG_0818-min.JPG',
     kind: 'image',
-    x: 22.43069490918369,
-    y: 136.82453678036285,
-    z: 13,
-    scale: 20,
   },
   {
-    hash: 'K2141972301066440671897398936078',
     file: 'IMG_5051-min.JPG',
     kind: 'image',
-    x: 52.5300973172144,
-    y: 137.02157531474157,
-    z: 11,
-    scale: 20,
   },
   {
-    hash: 'E2141972301232461368560784900622',
     file: 'IMG_2543-min.JPG',
     kind: 'image',
-    x: -4.504806371370536,
-    y: 155.0515824779951,
-    z: 14,
-    scale: 20,
   },
   {
-    hash: 'A2141972301177121136339656245774',
     file: 'IMG_5052-min.JPG',
     kind: 'image',
-    x: 81.84330812293322,
-    y: 156.53781038720825,
-    z: 15,
-    scale: 20,
     caption: 'and i really like pigeons',
   },
   {
-    hash: 'H2141972301158674392265946694158',
     file: 'IMG_6175-min.JPG',
     kind: 'image',
-    x: 28.564794939602983,
-    y: 168.6089719136681,
-    z: 12,
-    scale: 29.2,
   },
 ];
 
-export function playgroundAssetSrc(hash, file) {
+export function playgroundAssetSrc(file) {
   const base = process.env.PUBLIC_URL || '';
-  return `${base}/media/playground/${hash}_${file}`;
-}
-
-/** Vertical extent in cqw (Cargo uses width-normalized units for y). */
-export function playgroundFreeformPaddingCqw(items) {
-  const extent = items.reduce((max, it) => {
-    const y = Number(it.y);
-    const s = Number(it.scale);
-    return Math.max(max, y + s * 1.12);
-  }, 0);
-  return Math.min(520, Math.ceil(extent + 24));
+  return `${base}/media/playground/${file}`;
 }

@@ -285,6 +285,14 @@ button.eris-bodycopy-link {
 }
 
 /* Playground galleries: masonry (2-col mobile, 3-col desktop) */
+.eris-playground {
+  min-width: 0;
+}
+
+.eris-playground-intro {
+  overflow-wrap: break-word;
+}
+
 .eris-playground-masonry-grid {
   display: flex;
   margin: 2rem 0;

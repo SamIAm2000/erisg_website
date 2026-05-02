@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import Layout from '../components/layout/Layout';
 import Masonry from 'react-masonry-css';
 import { YoutubeEmbed } from '../components/project';
@@ -10,36 +10,12 @@ import {
 } from '../data/playgroundData';
 
 function Caption({ text }) {
-  const nodes = useMemo(() => {
-    if (!text) return null;
-    const parts = text.split(/(https?:\/\/[^\s]+)/g);
-    return parts.map((part, i) => {
-      if (/^https?:\/\//.test(part)) {
-        return (
-          <a key={i} href={part} target="_blank" rel="noopener noreferrer">
-            {part}
-          </a>
-        );
-      }
-      return (
-        <React.Fragment key={i}>
-          {part.split('\n').map((line, j, arr) => (
-            <React.Fragment key={j}>
-              {line}
-              {j < arr.length - 1 ? <br /> : null}
-            </React.Fragment>
-          ))}
-        </React.Fragment>
-      );
-    });
-  }, [text]);
-
   if (!text) return null;
-  return <p className="eris-caption mt-[0.35em] mb-0 text-left">{nodes}</p>;
+  return <p className="eris-caption mt-[0.35em] mb-0 text-left">{text}</p>;
 }
 
 function PlaygroundGridItem({ item }) {
-  const src = playgroundAssetSrc(item.hash, item.file);
+  const src = item.kind === 'youtube' ? undefined : playgroundAssetSrc(item.file);
 
   let media;
   if (item.kind === 'youtube' && item.youtubeId) {
@@ -75,7 +51,10 @@ function PlaygroundGrid({ items }) {
       columnClassName="eris-playground-masonry-grid-column"
     >
       {items.map((item) => (
-        <PlaygroundGridItem key={`${item.hash}-${item.file}`} item={item} />
+        <PlaygroundGridItem
+          key={`${item.kind}-${item.file}-${item.youtubeId ?? ''}`}
+          item={item}
+        />
       ))}
     </Masonry>
   );
@@ -92,7 +71,7 @@ function Playground() {
   return (
     <Layout>
       <div className="eris-playground eris-bodycopy">
-        <p className="mb-[1.2em]">{PLAYGROUND_INTRO}</p>
+        <p className="eris-playground-intro mb-[1.2em]">{PLAYGROUND_INTRO}</p>
 
         <PlaygroundGrid items={PLAYGROUND_GALLERY_1} />
 
